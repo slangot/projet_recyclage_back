@@ -17,10 +17,12 @@ connection.connect(err => {
   }
 })
 
+
 app.use(cors())
 app.use(morgan('tiny'))
 app.use(express.urlencoded({ extended: true }))
 app.use('/packaging', routes.packaging)
+app.use('/contact', routes.contact)
 
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`)

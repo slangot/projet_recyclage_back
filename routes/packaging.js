@@ -26,15 +26,12 @@ router.get('/:barcode', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-  const sql = 'INSERT INTO packaging(barcode, recycling, contribution) VALUES(?,?,?)'
+  console.log('Helloooooo')
+  const sql = 'INSERT INTO packaging(barcode, recycling, contribution) VALUES(?,?,1)'
   const sqlValues = [
     req.body.barcode,
-    req.body.recycling,
-    1
+    req.body.recyclingStatus,
   ]
-  console.log(typeof(sqlValues[0]))
-  console.log(typeof(sqlValues[1]))
-  console.log(typeof(sqlValues[2]))
 
   mysql.query(sql, sqlValues, (err, result) => {
     if(err) {
